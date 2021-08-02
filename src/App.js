@@ -1,23 +1,55 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  Route,
+  Switch,
+  Redirect,
+  Router
+} from "react-router-dom"
+
+// history
+import history from "./history"
+
+// Components
+import MainApp from './components/app/MainApp/MainApp'
+
+// Private Route to App
+// If User is authenticated
+const PrivateRoute = ({ auth, ...rest }) => {
+  return (
+    <Route {...rest} render={props =>
+      auth === true
+        ? <MainApp {...props} />
+        : <Redirect to='/login' />
+    }
+    />
+  )
+}
+
+const Login = () => (
+  <div>
+    This is login component
+  </div>
+)
+
+// auth is true for test purposes
+const auth = true
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Router history={history}>
+        <Switch>
+          <Route
+            path='/login'
+            component={Login}
+          />
+
+          <PrivateRoute
+            path='/'
+            auth={auth}
+          />
+        </Switch>
+        </Router>
     </div>
   );
 }
