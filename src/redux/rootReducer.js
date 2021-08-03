@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import messageReducer from './message/messageReducer'
+import socialServicesReducer from './modules/socialServices/socialServicesReducer'
 
 const rootReducer = combineReducers(
   {
-    message: messageReducer,
+    socialServices: socialServicesReducer,
   }
 )
 

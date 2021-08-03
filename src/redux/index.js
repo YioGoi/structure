@@ -1,4 +1,4 @@
 export {
   sendMessage
-  } from './message/messageActions'
+  } from './modules/socialServices/socialServicesActions'
   

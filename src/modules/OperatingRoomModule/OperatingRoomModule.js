@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 export default function OperatingRoomModule() {
     // Global State
-    const messageToOperationRoom = useSelector(state => state.message.messageToOperationRoom)
+    const messageToOperationRoom = useSelector(state => state.socialServices.messageToOperationRoom)
 
     return (
         <div className="p-grid">

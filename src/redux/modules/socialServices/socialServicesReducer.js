@@ -1,6 +1,6 @@
 import {
   SEND_MESSAGE
-} from "./messageActionTypes"
+} from "./socialServicesActionTypes"
 
 // initial state
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
 }
 
 // Message Reducer
-const messageReducer = (state = initialState, action) => {
+const socialServicesReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case SEND_MESSAGE:
@@ -22,4 +22,4 @@ const messageReducer = (state = initialState, action) => {
   }
 }
 
-export default messageReducer
+export default socialServicesReducer

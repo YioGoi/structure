@@ -1,6 +1,6 @@
 import {
     SEND_MESSAGE
-} from './messageActionTypes'
+} from './socialServicesActionTypes'
 
 export const sendMessage = message => {
     return {
