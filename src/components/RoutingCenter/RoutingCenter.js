@@ -10,7 +10,7 @@ export default function ApmRoutingCenter({
     to,
 }) {
     return (
-        <div id='apm-main-content-container'>
+        <div id='main-content-container'>
             <Suspense
                 fallback={
                     <i className="pi pi-spin pi-spinner" style={{'fontSize': '2em'}}></i>

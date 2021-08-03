@@ -4,6 +4,8 @@ import React from 'react'
 import './ModulesMenu.css'
 import 'primeicons/primeicons.css'
 
+// Components
+import { Link } from "react-router-dom"
 
 export default function ModulesMenu() {
 
@@ -11,12 +13,14 @@ export default function ModulesMenu() {
         {
             id: 0,
             name: 'Sosyal Hizmetler',
-            icon: 'pi pi-apple'
+            icon: 'pi pi-apple',
+            to: '/sosyal-hizmetler'
         },
         {
             id: 1,
             name: 'Ameliyathane',
-            icon: 'pi pi-calendar'
+            icon: 'pi pi-calendar',
+            to: '/ameliyathane'
         }
     ]
     return (
@@ -25,10 +29,12 @@ export default function ModulesMenu() {
                 modulesArray.map((module, index) => {
                     return (
                         <div className='module-box' key={index}>
-                            <i className={module.icon} style={{'fontSize': '2em'}}></i>
-                            <span>
-                                {module.name}
-                            </span>
+                            <Link to={module.to}>
+                                <i className={module.icon} style={{ 'fontSize': '2em' }}></i>
+                                <span>
+                                    {module.name}
+                                </span>
+                            </Link>
                         </div>
                     )
                 })
