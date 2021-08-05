@@ -9,16 +9,23 @@ import {
 // history
 import history from "./history"
 
+// query string
+import qs from 'query-string'
+
 // Components
 import MainApp from './components/app/MainApp/MainApp'
 
 // Private Route to App
 // If User is authenticated
-const PrivateRoute = ({ auth, ...rest }) => {
+const PrivateRoute = ({ auth, location, ...rest }) => {
+  // get query string for routing
+  let queryParams = qs.parse(location.search)
+  let path = queryParams.path || null
+
   return (
     <Route {...rest} render={props =>
       auth === true
-        ? <MainApp {...props} />
+        ? <MainApp {...props} path={path} />
         : <Redirect to='/login' />
     }
     />

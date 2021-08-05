@@ -18,7 +18,9 @@ import history from "../../../history"
 // Components
 import Layout from '../../layout/Layout/Layout'
 
-export default function MainApp() {
+export default function MainApp({
+    path
+}) {
     // Global State
     // const lastPath = useSelector((state) => state.authorization.lastPath)
 
@@ -28,6 +30,13 @@ export default function MainApp() {
             // store.dispatch(setLastPath(nextLocation.pathname))
         })
     }, [])
+
+    useEffect(() => {
+        // check if there is a specific module to route
+        if (path) {
+            history.push(path)
+        }
+    }, [path])
 
     return (
         <Switch>
