@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 // Styles
 import './SocialServicesModule.css'
@@ -8,6 +8,9 @@ import store from '../../redux/store'
 import {
     sendMessage
 } from '../../redux'
+
+// API
+import getOrganizationList from '../../common/api/getOrganizationList/getOrganizationList'
 
 // Prime Components
 import { InputText } from 'primereact/inputtext'
@@ -21,6 +24,10 @@ export default function SocialServicesModule() {
         e.stopPropagation()
         store.dispatch(sendMessage(value)) 
     }
+
+    useEffect(() => {
+        getOrganizationList()
+    }, [])
 
     return (
         <div className="social-services-module-container p-d-flex p-jc-center">
