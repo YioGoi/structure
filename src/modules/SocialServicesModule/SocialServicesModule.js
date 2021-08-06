@@ -5,6 +5,7 @@ import './SocialServicesModule.css'
 
 // Redux
 import store from '../../redux/store'
+import { useSelector } from 'react-redux'
 import {
     sendMessage
 } from '../../redux'
@@ -17,6 +18,9 @@ import { InputText } from 'primereact/inputtext'
 import { Button } from 'primereact/button'
 
 export default function SocialServicesModule() {
+    // Global State
+    const organizationList = useSelector(state => state.socialServices.organizationList)
+
     // Local State
     const [value, setValue] = useState('')
 
@@ -28,6 +32,8 @@ export default function SocialServicesModule() {
     useEffect(() => {
         getOrganizationList()
     }, [])
+
+    console.log(organizationList)
 
     return (
         <div className="social-services-module-container p-d-flex p-jc-center">
