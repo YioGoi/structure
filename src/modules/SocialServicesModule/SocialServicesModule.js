@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 // Styles
-import './SocialServicesModule.css'
+import './SocialServicesModule.scss'
 
 // Redux
 import store from '../../redux/store'

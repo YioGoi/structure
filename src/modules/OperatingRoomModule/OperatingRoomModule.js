@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 // Styles
-import './OperatingRoomModule.css'
+import './OperatingRoomModule.scss'
 
 // history
 import history from '../../history'
